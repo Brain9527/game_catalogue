@@ -1,4 +1,4 @@
-# 🎮 SteamLease 游戏下载查询平台
+# 🎮 NSLease 游戏下载查询平台
 
 [![Vue 3](https://img.shields.io/badge/Vue-3.x-42b883.svg?logo=vue.js)](https://vuejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.x-646CFF.svg?logo=vite)](https://vite.dev/)
@@ -12,7 +12,7 @@
 
 ## ✨ 项目简介
 
-**SteamLease 游戏下载查询平台** 是一个聚合型 Steam 游戏数据浏览工具。  
+**NSLease 游戏下载查询平台** 是一个聚合型 Steam、NS 游戏数据浏览工具。  
 支持搜索、筛选、排序和导出游戏信息，提供清晰的卡片式展示界面。  
 项目采用 Vue 3 + Vite 开发，并支持 Electron 打包为桌面端应用。
 
