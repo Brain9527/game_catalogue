@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <!-- 视口设置：移动端自适应 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SteamLease 游戏下载查询</title>
+
+  <!-- 可选：系统深浅色适配，不影响功能 -->
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- 可选：站点图标（放到 /public/favicon.svg 或 png） -->
+  <!-- <link rel="icon" href="/favicon.svg" /> -->
+
+  <!-- 可选：部署到子路径时，取消注释并设置正确前缀（例如 /steamlease/）
+  <base href="/steamlease/">
+  -->
+  <style>
+    /* 可选：给 #app 一个最小高度和一个纯 HTML 的“正在加载”占位 */
+    html, body, #app { height: 100%; margin: 0; }
+    #app[data-booting] {
+      display: grid; place-items: center; font: 14px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,PingFang SC,Microsoft YaHei,sans-serif;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- 根容器：Vite 会把 /src/main.js 挂载到这里 -->
+  <div id="app" data-booting>
+    正在启动应用…
+    <noscript>需要启用 JavaScript 才能正常使用本页面。</noscript>
+  </div>
+
+  <!-- 入口脚本：必须是 type="module"，路径固定为 /src/main.js -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

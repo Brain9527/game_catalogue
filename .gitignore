@@ -1,0 +1,86 @@
+# ========================
+# 📦 基础构建输出与依赖
+# ========================
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ========================
+# ⚙️ 环境配置文件
+# ========================
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# 示例文件通常应保留（用于说明变量格式）
+!.env.example
+
+# ========================
+# 🧰 编辑器与系统文件
+# ========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# ========================
+# 🚀 缓存与临时文件
+# ========================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.orig
+*.zip
+*.tar
+*.gz
+
+# Vite 缓存
+.vite/
+vite.config.timestamp-*.js
+
+# npm / yarn / pnpm 缓存与锁文件（可按团队策略保留）
+.npm/
+.yarn/
+.pnpm-store/
+# package-lock.json
+yarn-error.log
+pnpm-lock.yaml
+
+# ========================
+# 🧪 测试与覆盖率
+# ========================
+coverage/
+*.lcov
+
+# ========================
+# ⚛️ 前端构建工具生成的文件
+# ========================
+*.tsbuildinfo
+*.eslintcache
+.eslintcache
+.stylelintcache
+
+# ========================
+# 📂 系统与 IDE 文件
+# ========================
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# ========================
+# 🧱 GitHub Actions 或 CI 临时目录
+# ========================
+.github/workflows/*.tmp
+
+
+# ========================
+# 🧱 打包目录
+# ========================
+release/*

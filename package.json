@@ -1,0 +1,76 @@
+{
+  "name": "vue_game_catalogue",
+  "version": "1.0.1",
+  "description": "SteamLease 桌面端",
+  "author": "Brian <hduanxiang@gmail.com>",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "VITE_DEV_SERVER_URL=http://localhost:5173 electron .",
+    "build:renderer": "vite build",
+    "build:win": "npm run build:renderer && electron-builder --win nsis portable --x64 --ia32",
+    "build:mac": "npm run build:renderer && electron-builder --mac dmg zip"
+  },
+  "build": {
+    "appId": "com.yourcompany.steamlease",
+    "productName": "资源大全",
+    "directories": { "output": "release", "buildResources": "build" },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "build/icon.ico",
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "executableName": "ZiyuanDaqian",
+      "target": [
+        { "target": "nsis",     "arch": ["x64", "ia32"] },
+        { "target": "portable", "arch": ["x64", "ia32"] }
+      ]
+    },
+    "mac": {
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "target": [
+        { "target": "dmg", "arch": ["arm64"] },
+        { "target": "zip", "arch": ["arm64"] }
+      ],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "资源大全",
+      "menuCategory": true,
+      "uninstallDisplayName": "SteamLease"
+    }
+  },
+  "dependencies": {
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "cross-env": "^10.1.0",
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12",
+    "vite": "^7.1.7",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vite-plugin-vue-devtools": "^8.0.2"
+  }
+}
