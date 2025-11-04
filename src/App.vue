@@ -70,7 +70,7 @@ import { fetchGameDownloadList } from '@/utils/api'
 import { splitCSV, inDateRange, normalizeUrl, ymdToNum, downloadJSON } from '@/utils/helpers'
 
 // 查询参数（与接口一一对应；pageSize 支持 'all'）
-const query = reactive({ pageSize: 20, pageNum: 1, name: '' })
+const query = reactive({ pageSize: 100, pageNum: 1, name: '' })
 
 // 服务端返回的状态
 const state = reactive({
