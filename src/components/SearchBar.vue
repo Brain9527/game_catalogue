@@ -18,6 +18,7 @@
         <option :value="500">500</option>
         <option :value="1000">1000</option>
         <option :value="2000">2000</option>
+        <option :value="3000">3000</option>
       </select>
       <span class="muted">条</span>
     </div>
