@@ -149,12 +149,6 @@ Actions 文件路径：
 
 ---
 
-## 📄 License
-
-MIT License © 2025 [Brian](mailto:hduanxiang@gmail.com)
-
----
-
 ❤️ 一点心里话
 
 我知道，很多人年轻时都经历过“想玩但买不起”的阶段。那种想体验世界、又被钱包限制的感觉，我也懂。
@@ -166,3 +160,8 @@ MIT License © 2025 [Brian](mailto:hduanxiang@gmail.com)
 希望这个平台能帮你发现更多喜欢的作品，同时也记得——我们都有机会让世界变得更正当一点。
 如果你是开发者、发行方或版权方，发现有任何不当内容，请联系我，我会第一时间处理。
 📩 联系邮箱：hduanxiang@gmail.com
+## 📄 License
+
+MIT License © 2025 [Brian](mailto:hduanxiang@gmail.com)
+
+---
