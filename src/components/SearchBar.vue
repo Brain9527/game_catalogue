@@ -13,8 +13,6 @@
     <div class="row">
       <span class="muted">每页</span>
       <select class="select" v-model="model.pageSize" @change="emitSubmit(true)">
-        <option :value="20">20</option>
-        <option :value="50">50</option>
         <option :value="100">100</option>
         <option :value="200">200</option>
         <option :value="500">500</option>
@@ -47,13 +45,13 @@ const emit = defineEmits(['submit'])
 // 本地镜像，避免直接修改父的数据指针（可选）
 const model = reactive({
   name: props.query.name || '',
-  pageSize: props.query.pageSize ?? 20
+  pageSize: props.query.pageSize ?? 100
 })
 
 // 同步父 -> 子
 watch(() => props.query, (q) => {
   model.name = q.name || ''
-  model.pageSize = q.pageSize ?? 20
+  model.pageSize = q.pageSize ?? 100
 }, { deep: true })
 
 // 同步子 -> 父：提交时回写
