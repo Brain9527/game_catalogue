@@ -29,8 +29,6 @@
           <div class="pill" :class="{active: platforms?.pc_quark}"  @click="togglePlatform('pc_quark')"><span>PC 夸克</span><span class="pill-check"></span></div>
           <div class="pill" :class="{active: platforms?.ns_baidu}"  @click="togglePlatform('ns_baidu')"><span>NS 百度</span><span class="pill-check"></span></div>
           <div class="pill" :class="{active: platforms?.ns_quark}"  @click="togglePlatform('ns_quark')"><span>NS 夸克</span><span class="pill-check"></span></div>
-          <div class="pill" :class="{active: platforms?.ps4_baidu}" @click="togglePlatform('ps4_baidu')"><span>PS4 百度</span><span class="pill-check"></span></div>
-          <div class="pill" :class="{active: platforms?.ps4_quark}" @click="togglePlatform('ps4_quark')"><span>PS4 夸克</span><span class="pill-check"></span></div>
         </div>
       </div>
 
@@ -88,7 +86,7 @@ const props = defineProps({
   typesSelected: Array,
   dateStart: String,
   dateEnd: String,
-  platforms: Object,            // { pc_baidu, pc_quark, ns_baidu, ns_quark, ps4_baidu, ps4_quark }
+  platforms: Object,            // { pc_baidu, pc_quark, ns_baidu, ns_quark}
   tagsSelected: Array,
   sortOrder: { type: String, default: 'none' } // 'none' | 'desc' | 'asc'
 })
@@ -100,7 +98,7 @@ const emit = defineEmits([
 // 计算：平台是否已“全选”
 const platformsAllSelected = computed(() => {
   const p = props.platforms || {}
-  return ['pc_baidu','pc_quark','ns_baidu','ns_quark','ps4_baidu','ps4_quark'].every(k => p[k])
+  return ['pc_baidu','pc_quark','ns_baidu','ns_quark'].every(k => p[k])
 })
 
 // 切换类型
@@ -117,7 +115,7 @@ function togglePlatform(key) {
 }
 // 平台全选/全不选
 function togglePlatformAll() {
-  const keys = ['pc_baidu','pc_quark','ns_baidu','ns_quark','ps4_baidu','ps4_quark']
+  const keys = ['pc_baidu','pc_quark','ns_baidu','ns_quark']
   const allSelected = keys.every(k => props.platforms?.[k])
   const next = {}; keys.forEach(k => next[k] = !allSelected)
   emit('update:platforms', next)
