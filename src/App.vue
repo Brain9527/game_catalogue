@@ -83,7 +83,7 @@ const filters = reactive({
   typesSelected: [],
   dateStart: '',
   dateEnd: '',
-  platforms: { pc_baidu:false, pc_quark:false, ns_baidu:false, ns_quark:false, ps4_baidu:false, ps4_quark:false },
+  platforms: { pc_baidu:false, pc_quark:false, ns_baidu:false, ns_quark:false},
   tagsSelected: [],
   sortOrder: 'none' // 'none' | 'desc' | 'asc'
 })
@@ -193,7 +193,7 @@ function resetFilters(){
   filters.typesSelected = []
   filters.tagsSelected = []
   filters.dateStart = ''; filters.dateEnd = ''
-  filters.platforms = { pc_baidu:false, pc_quark:false, ns_baidu:false, ns_quark:false, ps4_baidu:false, ps4_quark:false }
+  filters.platforms = { pc_baidu:false, pc_quark:false, ns_baidu:false, ns_quark:false}
   filters.sortOrder = 'none'
 }
 

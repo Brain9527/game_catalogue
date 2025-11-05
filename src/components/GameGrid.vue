@@ -16,8 +16,6 @@
             <a v-if="row.pc_quark" class="link" :href="row.pc_quark" target="_blank" rel="noopener">PC 夸克</a>
             <a v-if="row.ns_baidu" class="link" :href="norm(row.ns_baidu)" target="_blank" rel="noopener">NS 百度</a>
             <a v-if="row.ns_quark" class="link" :href="row.ns_quark" target="_blank" rel="noopener">NS 夸克</a>
-            <a v-if="row.ps4_baidu" class="link" :href="norm(row.ps4_baidu)" target="_blank" rel="noopener">PS4 百度</a>
-            <a v-if="row.ps4_quark" class="link" :href="row.ps4_quark" target="_blank" rel="noopener">PS4 夸克</a>
           </div>
         </div>
       </div>
