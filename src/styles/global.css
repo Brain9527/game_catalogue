@@ -1,0 +1,44 @@
+:root {
+    /* Global Color Variables */
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --neutral-color: #ecf0f1;
+    --font-color: #2c3e50;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: var(--font-color);
+    background-color: var(--neutral-color);
+}
+
+/* Base Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+    font-weight: normal;
+}
+p {
+    line-height: 1.6;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--neutral-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
