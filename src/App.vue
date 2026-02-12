@@ -77,6 +77,7 @@ const state = reactive({
   list: [], total: 0, pages: 0, pageNum: 1,
   loading: false, error: '', jumpPageInput: 1
 })
+const { loading, error, jumpPageInput } = toRefs(state)
 
 // 前端筛选与排序
 const filters = reactive({
