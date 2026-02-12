@@ -1,0 +1,40 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.cardHover {
+  transition: transform 0.3s;
+}
+
+.cardHover:hover {
+  transform: scale(1.05);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #f0f0f0;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #f0f0f0;
+  }
+}
+
+.skeleton {
+  width: 100%;
+  height: 20px;
+  animation: skeleton-loading 1.5s infinite;
+}
