@@ -73,3 +73,21 @@ h1 { font-size: 22px; margin: 0 0 14px 0; letter-spacing: .5px; }
 
 /* 让某块在 Flex 容器里独占一整行（用于“排序换行”等场景） */
 .break-line { flex-basis: 100%; }
+
+@media (max-width: 600px) {
+  .container { max-width: none; margin: 0; padding: env(safe-area-inset-top) 12px env(safe-area-inset-bottom) 12px; }
+  .panel { border-radius: 20px; padding: 16px; }
+  h1 { font-size: 18px; margin: 0 0 12px 0; }
+  .row { gap: 10px; }
+  .input, .select, .btn { height: 42px; border-radius: 14px; font-size: 16px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
+  .thumb { height: 120px; border-radius: 12px; }
+  .card { border-radius: 18px; }
+  .card-body { padding: 10px 12px 12px; }
+  .title { font-size: 16px; }
+  .links { gap: 6px; }
+  .link { border-radius: 10px; }
+  .pill { padding: 10px 12px; border-radius: 14px; }
+  .pager { gap: 6px; }
+  .num { width: 64px; }
+}
