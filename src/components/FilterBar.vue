@@ -1,10 +1,10 @@
 <template>
-  <div class="panel" style="margin:12px 0; border-style:dashed;">
-    <div class="row" style="row-gap:14px; align-items:flex-start; flex-wrap:wrap;">
+  <div class="panel" style="margin: 18px 0;">
+    <div class="row" style="row-gap: 18px; align-items: flex-start; flex-wrap: wrap;">
 
       <!-- 类型：横向标签云，可多选 -->
-      <div style="min-width:300px;">
-        <div class="muted" style="margin-bottom:8px;">类型</div>
+      <div style="flex: 1; min-width: 350px;">
+        <div class="muted" style="margin-bottom: 10px; font-weight: 500;">类型</div>
         <div class="type-cloud">
           <div
             v-for="t in types"
@@ -19,8 +19,8 @@
       </div>
 
       <!-- 平台：同样 pill 风格，含“全部” -->
-      <div style="min-width:300px;">
-        <div class="muted" style="margin-bottom:8px;">平台链接</div>
+      <div style="flex: 1; min-width: 350px;">
+        <div class="muted" style="margin-bottom: 10px; font-weight: 500;">平台链接</div>
         <div class="type-cloud">
           <div class="pill" :class="{active: platformsAllSelected}" @click="togglePlatformAll" title="全选/全不选">
             <span>全部</span><span class="pill-check"></span>
@@ -32,29 +32,24 @@
         </div>
       </div>
 
-      <!-- 发售日范围 -->
-      <!-- <div>
-        <div class="muted" style="margin-bottom:8px;">发售日</div>
-        <div class="row">
-          <input class="input" type="date" :value="dateStart" @input="$emit('update:dateStart', $event.target.value)" />
-          <span class="muted">至</span>
-          <input class="input" type="date" :value="dateEnd" @input="$emit('update:dateEnd', $event.target.value)" />
+      <!-- 排序和清空 -->
+      <div class="break-line">
+        <div class="row" style="justify-content: space-between; align-items: flex-end;">
+          <div>
+            <div class="muted" style="margin-bottom: 10px; font-weight: 500;">排序</div>
+            <select class="select" :value="sortOrder" @change="$emit('update:sortOrder', $event.target.value)">
+              <option value="none">不排序</option>
+              <option value="desc">发售日：新 → 旧</option>
+              <option value="asc">发售日：旧 → 新</option>
+            </select>
+          </div>
+          <button class="btn ghost" @click="$emit('reset')">清空筛选</button>
         </div>
-      </div> -->
-
-      <!-- 排序（换行独占） -->
-      <div class="break-line" style="margin-top:6px;">
-        <div class="muted" style="margin-bottom:8px;">排序</div>
-        <select class="select" :value="sortOrder" @change="$emit('update:sortOrder', $event.target.value)">
-          <option value="none">不排序</option>
-          <option value="desc">发售日：新 → 旧</option>
-          <option value="asc">发售日：旧 → 新</option>
-        </select>
       </div>
 
       <!-- 标签：横向标签云 -->
-      <div style="min-width:300px;">
-        <div class="muted" style="margin-bottom:8px;">标签</div>
+      <div class="break-line">
+        <div class="muted" style="margin-bottom: 10px; font-weight: 500;">标签</div>
         <div class="tag-cloud">
           <div
             v-for="t in tags"
@@ -68,10 +63,6 @@
         </div>
       </div>
 
-      <!-- 重置 -->
-      <div style="align-self:flex-end;">
-        <button class="btn ghost" @click="$emit('reset')">清空筛选</button>
-      </div>
     </div>
   </div>
 </template>

@@ -2,24 +2,13 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import electron from 'vite-plugin-electron'
-import electronRenderer from 'vite-plugin-electron-renderer'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   base: './',
   plugins: [
     vue(),
     vueDevTools(),
-    ...(mode === 'development'
-      ? [
-          electron({
-            main: { entry: 'electron/main.cjs' },
-            preload: { input: { preload: 'electron/preload.cjs' } },
-          }),
-          electronRenderer(),
-        ]
-      : []),
   ],
   resolve: {
     alias: {
@@ -45,4 +34,4 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist', // 打包输出目录
   },
-}))
+})

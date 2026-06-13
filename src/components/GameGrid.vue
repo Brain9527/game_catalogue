@@ -28,6 +28,7 @@
 </template>
 
 <script setup>
+import { computed, watch, onMounted } from 'vue'
 import { splitCSV, normalizeUrl } from '@/utils/helpers'
 
 const props = defineProps({
@@ -36,9 +37,14 @@ const props = defineProps({
   pageSize: { type: Number, default: 0 }
 })
 
-const placeholder = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300"><rect width="100%" height="100%" fill="#f3f5f7"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#999" font-family="Arial" font-size="20">No Image</text></svg>`
-)
+const placeholder = computed(() => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+  const bg = isDark ? '#21262d' : '#f3f5f7'
+  const text = isDark ? '#8b949e' : '#999'
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300"><rect width="100%" height="100%" fill="${bg}"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${text}" font-family="Arial" font-size="20">No Image</text></svg>`
+  )
+})
 
 function titleOf(row){
   return row.g_title || row.name || row.g_name || row.g_ch_name || row.title || '未命名'
