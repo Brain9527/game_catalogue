@@ -37,3 +37,28 @@ export function downloadJSON(obj, filename = 'data.json') {
   a.click()
   URL.revokeObjectURL(url)
 }
+
+/** 复制文本到剪贴板 */
+export async function copyToClipboard(text) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text)
+      return true
+    } else {
+      const textarea = document.createElement('textarea')
+      textarea.value = text
+      textarea.style.position = 'fixed'
+      textarea.style.left = '0'
+      textarea.style.top = '0'
+      textarea.style.opacity = '0'
+      document.body.appendChild(textarea)
+      textarea.select()
+      const success = document.execCommand('copy')
+      document.body.removeChild(textarea)
+      return success
+    }
+  } catch (err) {
+    console.error('复制失败:', err)
+    return false
+  }
+}
