@@ -42,7 +42,8 @@ import { splitCSV, normalizeUrl, copyToClipboard } from '@/utils/helpers'
 const props = defineProps({
   items: { type: Array, default: () => [] },
   pageIndex: { type: Number, default: 1 },
-  pageSize: { type: Number, default: 0 }
+  pageSize: { type: Number, default: 0 },
+  platforms: { type: Object, default: () => ({}) }
 })
 
 const showToast = ref(false)
@@ -86,12 +87,21 @@ function tagsOf(row){
 }
 function linksOf(row){
   const pairs = [
-    ['PC 百度', normalizeUrl(row.pc_baidu)],
-    ['PC 夸克', normalizeUrl(row.pc_quark)],
-    ['NS 百度', normalizeUrl(row.ns_baidu)],
-    ['NS 夸克', normalizeUrl(row.ns_quark)]
+    ['PC 百度', normalizeUrl(row.pc_baidu), 'pc_baidu'],
+    ['PC 夸克', normalizeUrl(row.pc_quark), 'pc_quark'],
+    ['NS 百度', normalizeUrl(row.ns_baidu), 'ns_baidu'],
+    ['NS 夸克', normalizeUrl(row.ns_quark), 'ns_quark']
   ]
-  return pairs.filter(([,url]) => url).map(([label,url]) => ({ label, url }))
+  
+  const hasPlatformSelection = Object.values(props.platforms || {}).some(v => v)
+  
+  return pairs
+    .filter(([, url]) => url)
+    .filter(([, , key]) => {
+      if (!hasPlatformSelection) return true
+      return props.platforms?.[key]
+    })
+    .map(([label, url]) => ({ label, url }))
 }
 function seqNumber(i){
   if (!props.pageIndex || !props.pageSize) return null

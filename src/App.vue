@@ -44,7 +44,7 @@
             <div class="skeleton" v-for="i in 8" :key="i"><div class="shimmer"></div></div>
           </div>
         </div>
-        <GameGrid v-else key="grid" :items="visibleList" :page-index="pageNum" :page-size="realPageSize" />
+        <GameGrid v-else key="grid" :items="visibleList" :page-index="pageNum" :page-size="realPageSize" :platforms="filters.platforms" />
       </transition>
 
       <Pager
